@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://link-in-bio.vercel.app/'),
+  metadataBase: new URL('https://alex-linkinbio.vercel.app'),
   title: "AlexT / Link in Bio",
   description: "Consolidate your links and control your traffic flow.",
   openGraph: {
