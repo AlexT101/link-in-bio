@@ -1,94 +1,85 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import "./index.css";
+import Avatar from '../public/Avatar.jpg';
+import { IconHome, IconUser, IconMail, IconClock, IconBrandInstagram, IconBrandTwitter, IconBrandFacebook } from '@tabler/icons-react';
+
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
+/**--------PARAMETERS TO ADJUST-----------*/
+
+const avatar = Avatar.src;
+
+const name = "Alex Thummalapalli";
+
+const description = "Computer science student at Georgia Tech. Currently learning frontend development in React and user interface design in Figma.";
+
+const links = [
+  { name: 'Home', href: 'https://google.com', Icon: IconHome },
+  { name: 'About', href: 'https://google.com', Icon: IconUser },
+  { name: 'Contact', href: 'https://google.com', Icon: IconMail },
+  { name: 'Button', href: 'https://google.com', Icon: IconClock },
+];
+
+const displayIcons = true;
+
+const socialIcons = [
+  { name: 'Instagram', href: "https://www.instagram.com/", icon: IconBrandInstagram },
+  { name: 'Twitter', href: "https://twitter.com/", icon: IconBrandTwitter },
+  { name: 'Facebook', href: "https://www.facebook.com/", icon: IconBrandFacebook },
+];
+
+/**--------------------------------------*/
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init();
+}, []);
+
+  const renderIcon = (link: any) => {
+    if (link.Icon) {
+      const IconComponent = link.Icon;
+      return <IconComponent className="icon" />;
+    } else if (link.img) {
+      return <img src={link.img} alt="" className="icon" />;
+    }
+    return null;
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="overlay" />
+      <div className="spotlight" />
+
+      <div className="container">
+
+        <img src={avatar} alt="Avatar" className="avatar" id="avatar"/>
+        <h1 className="name">{name}</h1>
+        <p className="description">{description}</p>
+
+        <div className="socials">
+          {displayIcons && socialIcons.map((social, index) => (
+            <a key={index} href={social.href} className="button social" target="_blank" rel="noopener noreferrer">
+              <social.icon />
+            </a>
+          ))}
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="links">
+          {links.map((link, index) => (
+            <a key={index} href={link.href} className="button link" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true"  data-aos-delay={index * 50} data-aos-anchor={"#avatar"}>
+              {renderIcon(link)}
+              <span className="link-text">{link.name}</span>
+            </a>
+          ))}
+        </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <p className="footer">
+          <a className="footerLink" href="https://github.com/AlexT101/link-in-bio" target="_blank" rel="noopener noreferrer">Link in Bio</a> | {name}
+        </p>
       </div>
     </main>
   );
