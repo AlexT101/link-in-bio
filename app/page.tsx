@@ -37,7 +37,7 @@ const socialIcons = [
 export default function Home() {
   useEffect(() => {
     AOS.init();
-}, []);
+  }, []);
 
   const renderIcon = (link: any) => {
     if (link.Icon) {
@@ -56,7 +56,7 @@ export default function Home() {
 
       <div className="container">
 
-        <img src={avatar} alt="Avatar" className="avatar" id="avatar"/>
+        <img src={avatar} alt="Avatar" className="avatar" id="avatar" />
         <h1 className="name">{name}</h1>
         <p className="description">{description}</p>
 
@@ -70,10 +70,12 @@ export default function Home() {
 
         <div className="links">
           {links.map((link, index) => (
-            <a key={index} href={link.href} className="button link" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true"  data-aos-delay={index * 50} data-aos-anchor={"#avatar"}>
-              {renderIcon(link)}
-              <span className="link-text">{link.name}</span>
-            </a>
+            <div key={index}  data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true"  data-aos-delay={index * 50} data-aos-anchor={"#avatar"}>
+              <a href={link.href} className="button link" target="_blank" rel="noopener noreferrer">
+                {renderIcon(link)}
+                <span className="link-text">{link.name}</span>
+              </a>
+            </div>
           ))}
         </div>
 
