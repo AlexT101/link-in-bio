@@ -2,7 +2,7 @@
 
 import "./index.css";
 import Avatar from '../public/Avatar.jpg';
-import { IconHome, IconUser, IconMail, IconClock, IconBrandInstagram, IconBrandTwitter, IconBrandFacebook } from '@tabler/icons-react';
+import { IconHome, IconMail, IconBrandGithub, IconBrandLinkedin, IconFileText } from '@tabler/icons-react';
 
 import { useEffect } from 'react';
 import AOS from 'aos';
@@ -18,18 +18,16 @@ const name = "Alex Thummalapalli";
 const description = "Computer science student at Georgia Tech. Currently learning frontend development in React and user interface design in Figma.";
 
 const links = [
-  { name: 'Home', href: 'https://google.com', Icon: IconHome },
-  { name: 'About', href: 'https://google.com', Icon: IconUser },
-  { name: 'Contact', href: 'https://google.com', Icon: IconMail },
-  { name: 'Button', href: 'https://google.com', Icon: IconClock },
+  { name: 'Portfolio Website', href: 'https://alext.app', Icon: IconHome },
+  { name: 'Resume PDF', href: 'https://drive.google.com/file/d/1WmNBNW5tS6ZugPjRx6H2PEglHoviP7r1/view?usp=drive_link', Icon: IconFileText },
+  { name: 'Contact Info', href: 'mailto:alext@gatech.edu', Icon: IconMail },
 ];
 
 const displayIcons = true;
 
 const socialIcons = [
-  { name: 'Instagram', href: "https://www.instagram.com/", icon: IconBrandInstagram },
-  { name: 'Twitter', href: "https://twitter.com/", icon: IconBrandTwitter },
-  { name: 'Facebook', href: "https://www.facebook.com/", icon: IconBrandFacebook },
+  { name: 'Github', href: "https://github.com/AlexT101", icon: IconBrandGithub },
+  { name: 'Linkedin', href: "https://www.linkedin.com/in/alext101", icon: IconBrandLinkedin },
 ];
 
 /**--------------------------------------*/
