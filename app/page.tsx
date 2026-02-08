@@ -19,7 +19,7 @@ const description = "Computer science student at Georgia Tech. Currently learnin
 
 const links = [
   { name: 'Portfolio Website', href: 'https://alext.app', Icon: IconHome },
-  { name: 'Resume PDF', href: 'https://drive.google.com/file/d/1WmNBNW5tS6ZugPjRx6H2PEglHoviP7r1/view?usp=drive_link', Icon: IconFileText },
+  { name: 'Resume PDF', href: 'https://www.alext.app/Alex_Thummalapalli_Resume.pdf', Icon: IconFileText },
   { name: 'Contact Info', href: 'mailto:alext@gatech.edu', Icon: IconMail },
 ];
 
